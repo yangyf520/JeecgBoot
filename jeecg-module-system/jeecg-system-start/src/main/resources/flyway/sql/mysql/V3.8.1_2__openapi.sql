@@ -22,22 +22,22 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP TABLE IF EXISTS `open_api`;
 CREATE TABLE `open_api`  (
-  `id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '接口名称',
-  `request_method` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '请求方法',
-  `request_url` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '接口地址',
-  `black_list` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT 'IP 黑名单',
-  `body` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '请求体内容',
-  `origin_url` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '原始地址',
-  `status` int(10) NULL DEFAULT NULL COMMENT '状态',
-  `del_flag` int(10) NULL DEFAULT NULL COMMENT '删除标识',
-  `create_by` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '创建人',
-  `create_time` datetime NULL DEFAULT NULL COMMENT '创建时间',
-  `update_by` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '修改人',
-  `update_time` datetime NULL DEFAULT NULL COMMENT '修改时间',
-  `headers_json` json NULL COMMENT '请求头json',
-  `params_json` json NULL COMMENT '请求参数json',
-  PRIMARY KEY (`id`) USING BTREE
+                             `id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+                             `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '接口名称',
+                             `request_method` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '请求方法',
+                             `request_url` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '接口地址',
+                             `black_list` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT 'IP 黑名单',
+                             `body` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '请求体内容',
+                             `origin_url` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '原始地址',
+                             `status` int(10) NULL DEFAULT NULL COMMENT '状态',
+                             `del_flag` int(10) NULL DEFAULT NULL COMMENT '删除标识',
+                             `create_by` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '创建人',
+                             `create_time` datetime NULL DEFAULT NULL COMMENT '创建时间',
+                             `update_by` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '修改人',
+                             `update_time` datetime NULL DEFAULT NULL COMMENT '修改时间',
+                             `headers_json` json NULL COMMENT '请求头json',
+                             `params_json` json NULL COMMENT '请求参数json',
+                             PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '接口表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
@@ -50,16 +50,16 @@ INSERT INTO `open_api` VALUES ('1922132683346649090', '根据部门查询用户'
 -- ----------------------------
 DROP TABLE IF EXISTS `open_api_auth`;
 CREATE TABLE `open_api_auth`  (
-  `id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '授权名称',
-  `ak` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT 'AK',
-  `sk` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT 'SK',
-  `create_by` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '创建人',
-  `create_time` datetime NULL DEFAULT NULL COMMENT '创建时间',
-  `update_by` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '修改人',
-  `update_time` datetime NULL DEFAULT NULL COMMENT '修改时间',
-  `system_user_id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '关联系统用户名',
-  PRIMARY KEY (`id`) USING BTREE
+                                  `id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+                                  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '授权名称',
+                                  `ak` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT 'AK',
+                                  `sk` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT 'SK',
+                                  `create_by` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '创建人',
+                                  `create_time` datetime NULL DEFAULT NULL COMMENT '创建时间',
+                                  `update_by` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '修改人',
+                                  `update_time` datetime NULL DEFAULT NULL COMMENT '修改时间',
+                                  `system_user_id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '关联系统用户名',
+                                  PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '权限表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
@@ -72,13 +72,13 @@ INSERT INTO `open_api_auth` VALUES ('1922164194775056386', 'scott', 'ak-pFjyNHWR
 -- ----------------------------
 DROP TABLE IF EXISTS `open_api_log`;
 CREATE TABLE `open_api_log`  (
-  `id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `api_id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '接口ID',
-  `call_auth_id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '调用ID',
-  `call_time` datetime NULL DEFAULT NULL COMMENT '调用时间',
-  `used_time` bigint(20) NULL DEFAULT NULL COMMENT '耗时',
-  `response_time` datetime NULL DEFAULT NULL COMMENT '响应时间',
-  PRIMARY KEY (`id`) USING BTREE
+                                 `id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+                                 `api_id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '接口ID',
+                                 `call_auth_id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '调用ID',
+                                 `call_time` datetime NULL DEFAULT NULL COMMENT '调用时间',
+                                 `used_time` bigint(20) NULL DEFAULT NULL COMMENT '耗时',
+                                 `response_time` datetime NULL DEFAULT NULL COMMENT '响应时间',
+                                 PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = '调用记录表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
@@ -117,14 +117,14 @@ INSERT INTO `open_api_log` VALUES ('1922836856287428610', '1922132683346649090',
 -- ----------------------------
 DROP TABLE IF EXISTS `open_api_permission`;
 CREATE TABLE `open_api_permission`  (
-  `id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `api_id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '接口ID',
-  `api_auth_id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '认证ID',
-  `create_by` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '创建人',
-  `create_time` datetime NULL DEFAULT NULL COMMENT '创建时间',
-  `update_by` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '更新人',
-  `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
-  PRIMARY KEY (`id`) USING BTREE
+                                        `id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+                                        `api_id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '接口ID',
+                                        `api_auth_id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '认证ID',
+                                        `create_by` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '创建人',
+                                        `create_time` datetime NULL DEFAULT NULL COMMENT '创建时间',
+                                        `update_by` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '更新人',
+                                        `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
+                                        PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = 'openapi授权' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
@@ -166,5 +166,3 @@ INSERT INTO sys_role_permission (id, role_id, permission_id, data_rule_ids, oper
 INSERT INTO sys_role_permission (id, role_id, permission_id, data_rule_ids, operate_date, operate_ip) VALUES ('1917881149431058437', 'f6817f48af4fb3af11b9e8bf182f618b', '2025050105554940204', null, '2025-05-01 17:57:53', '0:0:0:0:0:0:0:1');
 INSERT INTO sys_role_permission (id, role_id, permission_id, data_rule_ids, operate_date, operate_ip) VALUES ('1917881149431058438', 'f6817f48af4fb3af11b9e8bf182f618b', '2025050105554940205', null, '2025-05-01 17:57:53', '0:0:0:0:0:0:0:1');
 INSERT INTO sys_role_permission (id, role_id, permission_id, data_rule_ids, operate_date, operate_ip) VALUES ('1917881149431058439', 'f6817f48af4fb3af11b9e8bf182f618b', '2025050105554940206', null, '2025-05-01 17:57:53', '0:0:0:0:0:0:0:1');
-INSERT INTO sys_role_permission (id, role_id, permission_id, data_rule_ids, operate_date, operate_ip) VALUES ('1917957659860963330', 'f6817f48af4fb3af11b9e8bf182f618b', '1917957565728198657', null, '2025-05-01 23:01:55', '0:0:0:0:0:0:0:1');
-INSERT INTO sys_role_permission (id, role_id, permission_id, data_rule_ids, operate_date, operate_ip) VALUES ('1922109760551858178', 'f6817f48af4fb3af11b9e8bf182f618b', '1922109301837606914', null, '2025-05-13 10:00:53', '0:0:0:0:0:0:0:1');
